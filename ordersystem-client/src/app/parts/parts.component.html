@@ -1,0 +1,75 @@
+<br>
+<div class="row">
+    <div class="col-md-12">
+        <h5>{{title}}</h5><br>
+        <form class="form-inline">
+                <div class="form-group">
+                    <div class="input-group">
+                        <input class="form-control" type="text" name="search"  placeholder="Search Part No/Doc No" [(ngModel)]="filter" style="font-size: 12px">
+                    </div> 
+                </div>
+                <!--&nbsp;<button type="button" (click)="goToCreateOrder()" class="btn btn-info btn-sm">Create Product</button>-->
+            </form>
+            <p style="font-size: 12px">Filter by:</p>
+<div class="dropdown">
+  <button class="btn btn-secondary btn-sm dropdown-toggle" style="box-shadow: 0px 8px 16px 0px rgba(14, 13, 13, 0.342); font-size: 12px"  type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      Mod/Rev
+  </button>
+  <div class="dropdown-menu" style="font-size: 11px" aria-labelledby="dropdownMenuButton">
+    <a class="dropdown-item" href="#">All My Parts</a>
+    <a class="dropdown-item" href="#">G6992-02</a>
+    <a class="dropdown-item" href="#">G6992-03</a>
+    <a class="dropdown-item" href="#">G6992-04</a>
+    <a class="dropdown-item" href="#">G6992-05</a>
+    <a class="dropdown-item" href="#">G6992-06</a>
+    <a class="dropdown-item" href="#">G6992-07</a>
+  </div>&nbsp;
+</div>
+<div class="dropdown">
+    <button class="btn btn-secondary btn-sm dropdown-toggle" style="box-shadow: 0px 8px 16px 0px rgba(14, 13, 13, 0.342); font-size: 12px"  type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      Document Type
+    </button>
+    <div class="dropdown-menu" style="font-size: 11px" aria-labelledby="dropdownMenuButton">
+      <a class="dropdown-item" href="#">All My Parts</a>
+      <a class="dropdown-item" href="#">G6992-02</a>
+      <a class="dropdown-item" href="#">G6992-03</a>
+      <a class="dropdown-item" href="#">G6992-04</a>
+      <a class="dropdown-item" href="#">G6992-05</a>
+      <a class="dropdown-item" href="#">G6992-06</a>
+      <a class="dropdown-item" href="#">G6992-07</a>
+    </div>
+  </div>
+  <br>
+  <br>
+        <table class="table table-bordered table-hover table-sm" style="font-size: 12px">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Part No</th>
+                    <th>Mod/Rev</th>
+                    <th>Doc No</th>
+                    <th>Doc Rev</th>
+                    <th>DocRev Date</th>
+                    <th>Doc Type</th>
+                    <th>Doc Title</th>
+                    <th>Price</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let part of parts | filter:filter | paginate: { itemsPerPage: 4, currentPage: p }; let i = index">
+                    <!--<td><a [routerLink]="['/parts', part.id]">{{part.id}}</a></td>-->
+                    <td>{{part.id}}</td>
+                    <td><a routerLink="/part-detail">{{part.partNo}}</a></td>
+                    <td>{{part.modRev}}</td>
+                    <td>{{part.docNo}}</td>
+                    <td>{{part.docRev}}</td>
+                    <td>{{part.docRevDate}}</td>
+                    <td>{{part.docType}}</td>
+                    <td>{{part.docTitle}}</td>
+                    <td>{{part.price | currency:'USD':'symbol'}}</td>
+                </tr>
+            </tbody>
+        </table>
+        <pagination-controls (pageChange)="p = $event" style="font-size: 12px"></pagination-controls>
+    </div>
+</div>

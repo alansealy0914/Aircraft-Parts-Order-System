@@ -1,0 +1,63 @@
+<div class="container-fluid">
+  <nav class="navbar navbar-expand-sm bg-transparent text-dark" style="border: none">
+    <div class="container-fluid">
+      <div class="navbar-header">
+      <!--<a class="navbar-brand" routerLink="/home"><img src="../../assets/plane-9931.png" alt="Logo" style="width:130px; margin-top: 10px; {{companyName}}</a>-->
+        <a class="navbar-brand" routerLink="/"><img src="../../assets/plane-9931.png" alt="Logo" style="width:130px; margin-top: 10px"></a>
+      </div>
+
+
+      <span class="text-secondary" style="margin-left: 10px; font-size: 28px"><i><sup style="font-size: 12px">the</sup>APOS</i></span><br>
+
+
+      &nbsp;&nbsp;<h6 style="color:steelblue"><em>ThunderCloud</em><small>&reg;</small><br>
+        <a routerLink="/" style="color:rgb(16, 94, 146); font-size: 10px; margin-left: 0px"><i>Aircraft Parts Order System</i></a>
+      </h6>
+      
+      
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <span style="margin-left: 50px">
+          <ul class="nav navbar-nav">
+            <li>
+              <div *ngIf="loginService.isUserLoggedIn()" class="dropdown">
+                <button class="btn btn-secondary btn-sm dropdown-toggle" style="box-shadow: 0px 8px 16px 0px rgba(14, 13, 13, 0.342); font-size: 12px"  type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  My Parts
+                </button>
+                <div class="dropdown-menu" style="font-size: 11px" aria-labelledby="dropdownMenuButton">
+                  <a class="dropdown-item" href="#">All My Parts</a>
+                  <a class="dropdown-item" href="#!/customers/1">G7404-124-01</a>
+                  <a class="dropdown-item" href="#!/customers/2">G7404-124-02</a>
+                  <a class="dropdown-item" href="#!/customers/4">G7404-124-04</a>
+                  <a class="dropdown-item" href="#!/customers/6">G7507-124-06</a>
+                  <a class="dropdown-item" href="#!/customers/10">G7904-124-10</a>
+                  <a class="dropdown-item" href="#!/customers/12">G8104-124-12</a>
+                </div>
+              </div>
+            </li>
+            <li>&nbsp;
+              <div *ngIf="loginService.isUserLoggedIn()" class="dropdown">
+                <button class="btn btn-secondary btn-sm dropdown-toggle" style="box-shadow: 0px 8px 16px 0px rgba(14, 13, 13, 0.342); font-size: 12px" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Document Types
+                </button>
+                <div class="dropdown-menu" style="font-size: 11px" aria-labelledby="dropdownMenuButton">
+                  <a class="dropdown-item" href="#">Acceptance Test Procedure (12)</a>
+                  <a class="dropdown-item" href="#">Component Maint Manual (3)</a>
+                  <a class="dropdown-item" href="#">Outline/Wiring Diagram (6)</a>
+                </div>
+              </div>
+            </li>
+            <li><button *ngIf="loginService.isUserLoggedIn()" type="button" class="btn btn-link">Service Information Letters</button></li>
+            <!--<li><a *ngIf="loginService.isUserLoggedIn()" routerLink="/customers" class="nav-link">Customers</a></li>
+            <li><a *ngIf="loginService.isUserLoggedIn()" routerLink="/products" class="nav-link">Products</a></li>
+            <li><a *ngIf="loginService.isUserLoggedIn()" routerLink="/orders" class="nav-link">Orders</a></li>-->
+            <li><a *ngIf="!loginService.isUserLoggedIn()" routerLink="/login" class="nav-link"><i class="fa fa-user-circle text-secondary" style="font-size:20px"></i>&nbsp;Login</a></li>
+            <li><a *ngIf="loginService.isUserLoggedIn()" routerLink="/logout" class="nav-link"><span style="margin-left: 200px"><i class="text-secondary fa fa-user-circle" style="font-size:20px"></i>&nbsp;LogOut</span></a></li>
+          </ul>
+        </span>  
+      </div>
+    </div>   
+  </nav> 
+</div>
+
+
+

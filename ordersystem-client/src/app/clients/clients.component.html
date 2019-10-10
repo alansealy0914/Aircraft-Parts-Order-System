@@ -1,0 +1,39 @@
+<br>
+<div class="row">
+    <div class="col-md-12">
+        <h6 style="color:steelblue"><em>Geo Global Client</em></h6><br>
+        <form class="form-inline">
+            <div class="form-group">
+                <div class="input-group">
+                    <input class="form-control" type="text" name="search"  placeholder="Customer Name/Customer Code" [(ngModel)]="filter" style="font-size: 12px; width:200px; box-shadow: 0px 8px 16px 0px rgba(14, 13, 13, 0.342)">
+                </div> 
+            </div>
+            <!--&nbsp;<button type="button" (click)="goToCreateOrder()" class="btn btn-info btn-sm">Create Product</button>-->
+        </form>
+            
+        <table class="table table-bordered table-hover table-sm" style="font-size: 12px">
+            <thead>
+                <tr>
+                    <th>ClientId</th>
+                    <th>Name</th>
+                    <th>Customer Code</th>
+                    <th>Bus Name</th>
+                    <th>Office</th>
+                    
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let client of clients | filter:filter | paginate: { itemsPerPage: 4, currentPage: p }; let i = index">
+                    <!--<td><a [routerLink]="['/parts', part.id]">{{part.id}}</a></td>-->
+                    <td>{{client.clientId}}</td>
+                    <td><a [routerLink]="['/clientDetail']">{{client.firstName}} {{client.lastName}}</a></td>
+                    <td>{{client.customerCode}}</td>
+                    <td>{{client.busName}}</td>
+                    <td>{{client.office}}</td>
+                    
+                </tr>
+            </tbody>
+        </table>
+        <pagination-controls (pageChange)="p = $event" style="font-size: 12px"></pagination-controls>
+    </div>
+</div>

@@ -1,2 +1,4 @@
-# Aircraft-Parts-Order-System
-Geo-location Engineering Parts System
+1. `cd` into the `server` folder
+2. Run `npm install`
+3. Run `npm start`
+

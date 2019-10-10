@@ -1,0 +1,38 @@
+<br>
+<div class="row">
+    <div class="col-md-12">
+        <h5>{{title}}</h5><br>
+        <form class="form-inline">
+                <div class="form-group">
+                    <div class="input-group">
+                        <input class="form-control" type="text" name="search"  placeholder="Product Name/Id" [(ngModel)]="filter">
+                    </div> 
+                </div>
+                &nbsp;<button type="button" (click)="goToCreateOrder()" class="btn btn-info btn-sm">Create Product</button>
+            </form>
+
+
+            <a routerLink="/orders">Orders</a>
+
+
+        <table class="table table-bordered table-hover table-sm">
+            <thead>
+                <tr>
+                    <th>Product Id</th>
+                    <th>Name</th>
+                    <th>Color</th>
+                    <th>Price</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let product of products | filter:filter | paginate: { itemsPerPage: 2, currentPage: p }; let i = index">
+                    <td><a [routerLink]="['/products', product.id]">{{product.id}}</a></td>
+                    <td>{{product.name}}</td>
+                    <td>{{product.color}}</td>
+                    <td>{{product.price | currency:'USD':'symbol'}}</td>
+                </tr>
+            </tbody>
+        </table>
+        <pagination-controls (pageChange)="p = $event"></pagination-controls>
+    </div>
+</div>

@@ -1,0 +1,62 @@
+<br><br>
+<!--<script type="application/javascript">
+  function add_google_logo() {
+        var src = "http://google.com/images/logo.gif";
+        show_image("http://google.com/images/logo.gif", 276,110, "Google Logo");
+    }
+
+
+    function show_image(src, width, height, alt) {
+        var img = document.createElement("img");
+        img.src = src;
+        img.width = width;
+        img.height = height;
+        img.alt = alt;
+        document.body.appendChild(img);
+    }
+</script>-->
+
+
+<div class="container">
+    <h5>{{title}}: &nbsp;&nbsp;<small>{{product.name}}</small></h5>
+</div>
+<br>
+<div class="row">
+  <div class="col-sm-4">
+    <table class="table table-bordered table-sm table-hover table-striped">
+      <thead class="thead-primary">
+        <tr>
+          <th style="font-size: 14px" scope="col">Description:</th>
+          <th style="font-size: 14px" scope="col">Price:</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td style="font-size: 14px" scope="row">{{product.color}}</td>
+          <td style="font-size: 14px">{{product.price | currency:'USD':'symbol'}}</td>
+        </tr>
+      </tbody>
+      </table>
+
+      <p>Click <i>Order Key</i> to download your product order key tracking number.</p>
+      <span style="margin-left:60px">
+        <a (click)="onPrint()" class="btn btn-info btn-sm" style="box-shadow: 0px 8px 16px 0px rgba(14, 13, 13, 0.342)" role="button"><i class="fa fa-key" style="font-size:34px;color:red"></i>&nbsp;Order Key Tracking</a>
+      </span>
+  </div>
+
+  <!--<div class="col-sm-5" style="height:300px; box-shadow: 0px 8px 16px 0px rgba(14, 13, 13, 0.342)">-->
+      <div class="col-sm-5" style="height:300px">
+    <img [src]="url" height="300" width="400" style="margin-left: 20px" alt="To view your part please click the Choose File button located below and match the part number to the image file. ">
+    
+    
+    <!--<button type="file" onclick="onSelectFile($event)">Add Google Logo</button>-->
+  </div>
+  
+  <div class="col-sm-3">
+    <br><br>
+      <label>Product ID:</label>&nbsp;{{product.id}}<br>
+      <label>Product Name:</label>&nbsp;<strong>{{product.name}}</strong><br>
+      <label>Product Price:</label>&nbsp;{{product.price | currency:'USD':'symbol'}}<br><br>
+      <input type='file' (change)="onSelectFile($event)">
+  </div>
+</div>

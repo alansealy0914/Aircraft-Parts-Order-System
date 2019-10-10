@@ -1,0 +1,46 @@
+<div class="container"> 
+  <p class="text-center" style="color:rgb(52, 119, 187)">Welcome to the APOS Customer Center Service Portal.<br>
+  Please login to access the engineering publication site. </p> 
+  <div class="row">  
+    <div class="col-md-6 mx-auto">  
+      <div class="card-group">  
+        <div class="card p-3" style="background: transparent; box-shadow: 0 10px 40px 0 rgb(122, 140, 165)">  
+          <div class="card-body" style="color:rgb(25, 82, 139)">
+              
+            <form name="form" (ngSubmit)="login()" #f="ngForm">   
+              <h5 style="text-align:center"><i class="fa fa-sign-in" aria-hidden="true"></i>&nbsp;Login</h5>  
+               
+              <div class="input-group mb-3">  
+                <div class="input-group-prepend">  
+                  <span class="input-group-text"><i class="fa fa-user"></i></span>  
+                </div>  
+                <input type="text" name="username" [(ngModel)]="username" class="form-control sty1" placeholder="User Name" required>  
+              </div>  
+              <div class="input-group mb-4">  
+                <div class="input-group-prepend">  
+                  <span class="input-group-text"><i class="fa fa-lock"></i></span>  
+                </div>  
+                <input type="password" name="password" [(ngModel)]="password" class="form-control" placeholder="Access Key">  
+              </div>  
+              <div>  
+                  <p style="color:#E92626;font-size:20px;font-weight:normal" class="success" text-align="left">  
+                    {{errorMessage}}  
+                  </p>  
+                </div>  
+              <div class="row">  
+                <div class="col-12">  
+                  <!--<button type="submit" class="btn btn-primary px-2">Login</button>-->
+                  <button (click)=checkLogin() class="btn btn-success">Login</button>&nbsp;&nbsp;
+                  
+                  <a routerLink="/register" class="btn btn-link px-0">Create New Account &nbsp; | &nbsp;</a>
+                  <a routerLink="/register" class="btn btn-link px-0">Forgot Password &nbsp; | &nbsp;</a>
+                  <a routerLink="/register" class="btn btn-link px-0">Help</a> 
+                </div>
+              </div>  
+            </form>  
+          </div>  
+        </div>  
+      </div>  
+    </div>  
+  </div>  
+</div>

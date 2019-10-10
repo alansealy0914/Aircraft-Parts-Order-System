@@ -1,0 +1,67 @@
+<form class="form-inline">
+  <div class="form-group">
+    <div class="input-group">
+      <input class="form-control" type="text" name="search" style="box-shadow: 0px 8px 16px 0px rgba(14, 13, 13, 0.342); font-size: 12px" placeholder="Part No/Doc No Search" [(ngModel)]="filter">
+    </div> 
+  </div>
+  &nbsp;<button type="button" (click)="goToCreateOrder()" class="btn btn-info btn-sm" style="box-shadow: 0px 8px 16px 0px rgba(14, 13, 13, 0.342); font-size: 12px">Repair Order </button>
+</form>
+<p style="font-size: 12px">Filter by:</p>
+<div class="dropdown">
+  <button class="btn btn-secondary btn-sm dropdown-toggle" style="box-shadow: 0px 8px 16px 0px rgba(14, 13, 13, 0.342); font-size: 12px"  type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      Mod/Rev
+  </button>
+  <div class="dropdown-menu" style="font-size: 11px" aria-labelledby="dropdownMenuButton">
+    <a class="dropdown-item" href="#">All My Parts</a>
+    <a class="dropdown-item" href="#">G6992-02</a>
+    <a class="dropdown-item" href="#">G6992-03</a>
+    <a class="dropdown-item" href="#">G6992-04</a>
+    <a class="dropdown-item" href="#">G6992-05</a>
+    <a class="dropdown-item" href="#">G6992-06</a>
+    <a class="dropdown-item" href="#">G6992-07</a>
+  </div>&nbsp;
+</div>
+<div class="dropdown">
+  <button class="btn btn-secondary btn-sm dropdown-toggle" style="box-shadow: 0px 8px 16px 0px rgba(14, 13, 13, 0.342); font-size: 12px"  type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Document Type
+  </button>
+  <div class="dropdown-menu" style="font-size: 11px" aria-labelledby="dropdownMenuButton">
+    <a class="dropdown-item" href="#">All My Parts</a>
+    <a class="dropdown-item" href="#">G6992-02</a>
+    <a class="dropdown-item" href="#">G6992-03</a>
+    <a class="dropdown-item" href="#">G6992-04</a>
+    <a class="dropdown-item" href="#">G6992-05</a>
+    <a class="dropdown-item" href="#">G6992-06</a>
+    <a class="dropdown-item" href="#">G6992-07</a>
+  </div>
+</div>
+<br>
+<br>
+<table class="table bg-transparent">
+  <thead style="font-size: 12px">
+    <tr>
+      <th>CustomerId</th>
+      <th>FirstName</th>
+      <th>LastName</th>
+      <th>ClientCode</th>
+      <th>BusName</th>
+      <th>Office</th>
+      
+      <th>DocTitle</th>
+      <th>Discount?</th>
+    </tr>
+  </thead>
+  <tbody style="font-size: 12px">
+    <tr *ngFor="let customer of customers | filter:filter | paginate: { itemsPerPage: 3, currentPage: p }; let i = index">
+      <td><a [routerLink]="['/customers', customer.id]">{{customer.CustomerId}}</a></td>
+      <td>{{customer.FirstName}}</td>
+      <td>{{customer>LastName}}</td>
+      <td>{{customer.ClientCode}}</td>
+      <td>{{customer.BusName}}</td>
+      <td>{{customer.Office}}</td>
+      <td>{{customer.doctitle}}</td>-->
+      <td>{{customer.getsDiscount ? 'Yes':'No'}}</td>-->
+    </tr>
+  </tbody>
+</table>
+<small><pagination-controls (pageChange)="p = $event"></pagination-controls></small>

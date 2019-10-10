@@ -1,0 +1,65 @@
+<br><br>
+<div *ngIf="dataLoaded">
+    <div class="row">
+        &nbsp;&nbsp;&nbsp;<h5>{{title}}: {{order.id}}</h5>
+    </div>
+    <div class="row">
+        <div class="col-md-3">
+            <h6>Customer Name:</h6>
+        </div>
+        <div class="col-md-4 end">
+            <h6>{{customer.FirstName}}</h6>
+        </div>
+    </div><br>
+    <div class="row">
+        <div class="col-md-12">
+            <h6>Items</h6>
+            <table class="table table-hover table-bordered table-sm ">
+                <thead>
+                    <tr>
+                        <th style="font-size: 14px">Product ID</th>
+                        <th style="font-size: 14px">Product Name</th>
+                        <th style="font-size: 14px">Quantity</th>
+                        <th style="font-size: 14px">Item Price</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let item of order.items">
+                        <td style="font-size: 14px"><a href="#/products/{{item.productId}}">{{item.productId}}</a></td>
+                        <td style="font-size: 14px">{{item.productName}}</td>
+                        <td style="font-size: 14px">{{item.quantity}}</td>
+                        <td style="font-size: 14px">{{item.itemPrice | currency:'USD':'symbol'}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div><br><br>
+
+    <div class="col-sm-12">
+            <div class="row" *ngIf="customer.getsDiscount">
+                    <div class="col-md-3">
+                        <h6>Total Cost:</h6>
+                    </div>
+                    <div class="col-md-4 end">
+                        <h6>{{order.totalCost | currency:'USD':'symbol'}}</h6>
+                    </div>
+                </div>
+                <div class="row" *ngIf="customer.getsDiscount">
+                    <div class="col-md-3">
+                        <h6>Customer Discount:</h6>
+                    </div>
+                    <div class="col-md-4 end">
+                        <h6>{{customer.discount.discountPercent}}%</h6>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-3">
+                        <h6>Total Sale:</h6>
+                    </div>
+                    <div class="col-md-4 end">
+                        <h6>{{order.totalSale | currency:'USD':'symbol'}}</h6>
+                    </div>
+                </div>
+    </div>
+    
+</div>
